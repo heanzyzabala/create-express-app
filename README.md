@@ -7,11 +7,11 @@ You can directly clone this repository:
 ```bash
 git clone https://github.com/heanzyzabala/express-starter.git
 ```
-or you can install [create-express-starter](https://www.npmjs.com/package/create-express-starter)
+or you can install the module [create-express-starter](https://www.npmjs.com/package/create-express-starter) available from the npm register.
 ```bash
 npm i -g create-express-starter
 ```
-and get started with this command:
+and setup the project with this command:
 ```bash
 create-express-starter myapp
 ```
