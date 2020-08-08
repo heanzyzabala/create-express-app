@@ -87,7 +87,7 @@ This is what the project structure look like:
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
-└── LICENSE
+├── LICENSE
 └── README.md
 ```
 ## What's installed:
