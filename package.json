@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=dev node_modules/nodemon/bin/nodemon.js src/app",
-    "test": "NODE_ENV=test node_modules/mocha/bin/mocha test/* --exit"
+    "start": "node src/app",
+    "dev": "node_modules/nodemon/bin/nodemon.js src/app",
+    "test": "NODE_ENV=test node_modules/mocha/bin/mocha test/* --exit",
+    "lint": "node_modules/eslint/bin/eslint/js --fix ."
   },
   "repository": {
     "type": "git",
