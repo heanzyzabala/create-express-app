@@ -65,6 +65,7 @@ curl --location --request POST 'http://localhost:8080/api/greet' \
 }
 ```
 ## File Structure
+This is what the project structure look like:
 ```                
 .
 ├── src
@@ -86,6 +87,7 @@ curl --location --request POST 'http://localhost:8080/api/greet' \
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
+└── LICENSE
 └── README.md
 ```
 ## What's installed:
@@ -118,7 +120,12 @@ curl --location --request POST 'http://localhost:8080/api/greet' \
 * [supertest](https://www.npmjs.com/package/supertest)
   * Is a library made specifically for testing nodejs http servers.
 
+## Contributing
+Pull requests are welcome. Please open an issue first to discuss what you would like to change.
+
+
 ## License
+```
 MIT License
 
 Copyright (c) 2020 Heanzy Zabala
@@ -140,3 +147,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
