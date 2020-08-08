@@ -6,7 +6,7 @@ const nameSchema = require('../schemas/name.schema');
 
 router.get('/greet/:name', async (req, res) => {
     const { name } = req.params;
-    if (!isValidName(name)) {
+    if (!await isValidName(name)) {
         return res.status(422).json({ error: 'Invalid Name' });
     }
     if (name !== 'heanzy' && await nameService.get(name) == null) {
@@ -16,15 +16,26 @@ router.get('/greet/:name', async (req, res) => {
 });
 
 router.post('/greet', async (req, res) => {
-    const { name } = req.body;
-    if (!isValidName(name)) {
+    try {
+      const { name } = req.body;
+      if (!await isValidName(name)) {
         return res.status(422).json({ error: 'Invalid Name' });
+      }
+      const result = await nameService.save(name);
+      return res.status(201).json({ message: `I'll keep '${name}' in mind.`})
+    } catch (err) {
+      console.error(err);
+      const { name, code } = err;
+      if (name && code === 11000) {
+        return res.status(422).json({ error: 'I already know that name'});
+      }
+      return res.status(500).json({ error: 'Internal Server Error'});
     }
-    await nameService.save(name);
-    return res.status(201).json({ message: `I'll keep ${name} in mind.`})
 });
 
 async function isValidName(name) {
-    return await nameSchema.isValid({ name });
+    const v = await nameSchema.isValid({ name });
+    console.log(v);
+    return v;
 }
 module.exports = router;
