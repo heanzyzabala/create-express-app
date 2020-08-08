@@ -32,7 +32,7 @@ router.post('/greet', async (req, res) => {
         console.error(err);
         const { name, code } = err;
         if (name && code === 11000) {
-            return res.status(422).json({ error: 'I already know that name' });
+            return res.status(422).json({ error: 'I already know that name.' });
         }
         return res.status(500).json({ error: 'Internal Server Error' });
     }
