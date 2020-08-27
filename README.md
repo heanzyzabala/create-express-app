@@ -1,5 +1,5 @@
 # Express Starter
-express-starter is a bootstrap project for express with ready-made folder structure, dependency configurations and npm run scripts.
+express-starter is a bootstrap project for express with a ready-to-run application skeleton.
 
 ## Installation
 
