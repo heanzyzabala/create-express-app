@@ -1,42 +1,35 @@
 {
-  "name": "express-starter",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "create-express-app",
+  "version": "0.1.0",
   "scripts": {
-    "start": "node src/app",
-    "dev": "node_modules/nodemon/bin/nodemon.js src/app",
-    "test": "NODE_ENV=test node_modules/mocha/bin/mocha test/* --exit",
-    "lint": "node_modules/eslint/bin/eslint/js --fix ."
+    "compile": "rm -rf dist/ && tsc -d -p .",
+    "dev": "ts-node-dev --respawn -- src/main.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heanzyzabala/express-starter.git"
+    "url": "git+https://github.com/heanzyzabala/create-express-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heanzyzabala/express-starter/issues"
+    "url": "https://github.com/heanzyzabala/create-express-app/issues"
   },
-  "homepage": "https://github.com/heanzyzabala/express-starter#readme",
+  "homepage": "https://github.com/heanzyzabala/create-express-app#readme",
   "dependencies": {
-    "cors": "^2.8.5",
+    "@types/convict": "^6.0.1",
+    "convict": "^6.0.1",
+    "convict-format-with-validator": "^6.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "faker": "^4.1.0",
-    "mongoose": "^5.9.27",
-    "morgan": "^1.10.0",
-    "yup": "^0.29.3"
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.32"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.6.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "mocha": "^8.1.0",
-    "nodemon": "^2.0.4",
-    "sinon": "^9.0.2",
-    "supertest": "^4.0.2"
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.37",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
   }
 }
