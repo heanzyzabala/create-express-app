@@ -1,10 +1,10 @@
 import 'reflect-metadata';
-import { createConnection } from 'typeorm';
+import { createConnection, getConnection } from 'typeorm';
 
-import { config } from './config';
 import * as entities from './entities';
+import { config } from './config';
 
-export const connectDb = async () => {
+export const connect = async () => {
 	try {
 		await createConnection({
 			type: 'postgres',
@@ -18,5 +18,37 @@ export const connectDb = async () => {
 		});
 	} catch (err) {
 		console.error('Error connecting to db', err);
+		throw err;
+	}
+};
+
+export const close = async () => {
+	try {
+		await getConnection().close();
+	} catch (err) {
+		console.error('Error closing db', err);
+		throw err;
+	}
+};
+
+export const truncate = async (tableName?: string): Promise<void> => {
+	try {
+		const connection = getConnection();
+		if (tableName) {
+			const entity = connection.entityMetadatas.find((entity) => entity.tableName === tableName);
+			if (!entity) {
+				throw new Error(`Unable to truncate table:${tableName} does not exist.`);
+			}
+			const repository = connection.getRepository(entity.name);
+			await repository.query(`TRUNCATE TABLE ${tableName} RESTART IDENTITY CASCADE`);
+			return;
+		}
+		connection.entityMetadatas.forEach(async (entity) => {
+			const repository = connection.getRepository(entity.name);
+			await repository.query(`TRUNCATE TABLE ${entity.tableName} RESTART IDENTITY CASCADE`);
+		});
+	} catch (err) {
+		console.log('Error truncating db', err);
+		throw err;
 	}
 };

@@ -1,12 +1,12 @@
 import * as express from 'express';
 
-import { config } from './config';
-import { connectDb } from './db';
-import { router } from './routers';
+import * as db from './db';
 import * as middlewares from './middlewares';
+import { config } from './config';
+import { router } from './routers';
 
 const main = async () => {
-	await connectDb();
+	await db.connect();
 
 	const app: express.Express = express();
 	app.use(express.json());
@@ -23,8 +23,10 @@ const main = async () => {
 	process.on('SIGTERM', () => {
 		console.log('SIGTERM signal received');
 		if (config.get('ENV') === 'production') {
-			server.close(() => {
+			server.close(async () => {
 				console.log('Express server closed');
+				await db.close();
+				console.log('Database connection closed');
 			});
 		}
 		process.exit(0);
