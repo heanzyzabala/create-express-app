@@ -16,7 +16,7 @@ export const list = async (): Promise<Array<User>> => {
 	});
 };
 
-export const save = async ({ name, email }: User): Promise<User> => {
+export const create = async ({ name, email }: User): Promise<User> => {
 	const userRepository = getRepository(entities.User);
 	const user = await userRepository.findOne({
 		where: { name, email },

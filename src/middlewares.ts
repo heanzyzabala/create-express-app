@@ -10,7 +10,7 @@ export const errorHandler = async (
 	if (res.headersSent) {
 		return next(err);
 	}
-	console.error(err.stack);
+	
 	if (err instanceof UserAlreadyExists) {
 		return res.status(422).json({
 			error: {
@@ -19,6 +19,8 @@ export const errorHandler = async (
 			},
 		});
 	}
+
+	console.error(err.stack);
 	return res.status(500).json({
 		error: {
 			name: 'InternalServerError',
