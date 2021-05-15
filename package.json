@@ -1,6 +1,6 @@
 {
   "name": "@hzabala/create-express-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "compile": "rm -rf dist/ && tsc -d -p .",
     "dev": "ts-node-dev --respawn -- src/index.ts",
@@ -15,6 +15,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/heanzyzabala/create-express-api/issues"
+  },
+  "bin": {
+    "@hzabala/create-express-api": "./bin/cli.js"
   },
   "homepage": "https://github.com/heanzyzabala/create-express-api#readme",
   "dependencies": {
