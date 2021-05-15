@@ -1,5 +1,5 @@
 {
-  "name": "create-express-app",
+  "name": "@hzabala/create-express-api",
   "version": "0.1.0",
   "scripts": {
     "compile": "rm -rf dist/ && tsc -d -p .",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heanzyzabala/create-express-app.git"
+    "url": "git+https://github.com/heanzyzabala/create-express-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heanzyzabala/create-express-app/issues"
+    "url": "https://github.com/heanzyzabala/create-express-api/issues"
   },
-  "homepage": "https://github.com/heanzyzabala/create-express-app#readme",
+  "homepage": "https://github.com/heanzyzabala/create-express-api#readme",
   "dependencies": {
     "@types/convict": "^6.0.1",
     "convict": "^6.0.1",
