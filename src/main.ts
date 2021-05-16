@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { Server } from 'http';
 
-import * as middlewares from './middlewares';
+import { errorHandler, noRouteHandler } from './middlewares';
 import { config } from './config';
 import { router } from './routers';
 
@@ -9,8 +9,8 @@ export const createApp = async (): Promise<express.Express> => {
 	const app: express.Express = express();
 	app.use(express.json());
 	app.use(router);
-	app.use(middlewares.errorHandler);
-	app.use('*', middlewares.noRouteHandler);
+	app.use(errorHandler);
+	app.use('*', noRouteHandler);
 	return app;
 };
 

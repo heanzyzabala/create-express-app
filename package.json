@@ -4,7 +4,7 @@
   "scripts": {
     "compile": "rm -rf dist/ && tsc -d -p .",
     "dev": "ts-node-dev --respawn -- src/index.ts",
-    "test": "jest test --passWithNoTests"
+    "test": "jest test --passWithNoTests --runInBand"
   },
   "repository": {
     "type": "git",
