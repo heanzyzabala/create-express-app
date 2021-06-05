@@ -26,6 +26,7 @@ describe('user-service', () => {
 			expect(updatedUsers.length).toEqual(1);
 		});
 	});
+
 	describe('remove', () => {
 		it('should remove user', async () => {
 			const user: User = await create({ name: 'John Smith', email: 'john.smith@email.com' });
@@ -37,6 +38,7 @@ describe('user-service', () => {
 			expect(updatedUsers.length).toEqual(0);
 		});
 	});
+
 	describe('create', () => {
 		it('should create user', async () => {
 			await create({ name: 'John Smith', email: 'john.smith@email.com' });

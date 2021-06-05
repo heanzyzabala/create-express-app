@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "compile": "rm -rf dist/ && tsc -d -p .",
+    "dev": "ts-node-dev --respawn -- src/index.ts",
+    "test": "jest test --passWithNoTests --runInBand"
+  },
+  "dependencies": {
+    "convict": "^6.0.1",
+    "convict-format-with-validator": "^6.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.32"
+  },
+  "devDependencies": {
+    "@types/convict": "^6.0.1",
+    "@types/express": "^4.17.11",
+    "@types/express-rate-limit": "^5.1.1",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^14.14.37",
+    "@types/supertest": "^2.0.11",
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3",
+    "ts-jest": "^26.5.5",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  }
+}

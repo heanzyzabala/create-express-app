@@ -42,6 +42,16 @@ const createConfig = () => {
 			format: String,
 			default: null,
 		},
+		RATE_LIMIT_CD: {
+			env: 'RATE_LIMIT_CD',
+			format: 'int',
+			default: 15,
+		},
+		RATE_LIMIT_MAX: {
+			env: 'RATE_LIMIT_MAX',
+			format: 'int',
+			default: 150,
+		},
 	});
 	config.validate({ allowed: 'strict' });
 	return config;

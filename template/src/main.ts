@@ -1,16 +1,28 @@
 import * as express from 'express';
-import { Server } from 'http';
 
-import { errorHandler, noRouteHandler } from './middlewares';
+import { Server } from 'http';
+import * as rateLimit from 'express-rate-limit';
+import { errorHandler, noPathHandler, rateLimiter } from './middlewares';
 import { config } from './config';
 import { router } from './routers';
+import { TooManyRequests } from './errors';
 
 export const createApp = async (): Promise<express.Express> => {
 	const app: express.Express = express();
 	app.use(express.json());
+	app.use(
+		'/',
+		rateLimit({
+			windowMs: 15 * 60 * 1000,
+			max: 150,
+			handler: (req, res, next) => {
+				next(new TooManyRequests());
+			},
+		}),
+	);
 	app.use(router);
 	app.use(errorHandler);
-	app.use('*', noRouteHandler);
+	app.use('*', noPathHandler);
 	return app;
 };
 
