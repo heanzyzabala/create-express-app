@@ -18,6 +18,20 @@ async function setup() {
 		log('For Example:');
 		log(`   ${chalk.cyan('create-express-api')} ${chalk.green('app')}`);
 		log();
+		log(`Type:`);
+		log(`   --help or -h for more commands.`);
+		log();
+		process.exit(1);
+	}
+
+	if (/--help|-h/.test(process.argv[2])) {
+		log();
+		log('Usage:');
+		log(`   create-express-api ${chalk.green('<project-directory>')}`);
+		log();
+		log('Options:');
+		log('   -h, --help       output usage information');
+		log();
 		process.exit(1);
 	}
 
@@ -54,9 +68,7 @@ async function setup() {
 		spinner.start('Cloning template from repository.');
 		process.chdir(rootDir);
 		await exec('git init');
-		await exec(
-			'git remote add origin https://github.com/heanzyzabala/create-express-api.git',
-		);
+		await exec('git remote add origin https://github.com/heanzyzabala/create-express-api.git');
 		await exec('git config core.sparsecheckout true');
 		await exec('echo "template" >> .git/info/sparse-checkout');
 		await exec('git pull --depth=1 origin master');
