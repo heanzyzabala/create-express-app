@@ -1,8 +1,8 @@
 import { getRepository } from 'typeorm';
 
-import * as entities from '../../entities';
-import { UserAlreadyExists } from '../../errors';
-import { User } from '../../types';
+import * as entities from '../entities';
+import { UserAlreadyExists } from '../errors';
+import { User } from '../types';
 
 export const list = async (): Promise<Array<User>> => {
 	const userRepository = getRepository(entities.User);

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import * as userService from '../../services/users';
+import { userService } from '../../services';
 
 export const remove = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
 	try {

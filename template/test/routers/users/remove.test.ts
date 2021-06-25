@@ -1,9 +1,8 @@
 import * as request from 'supertest';
 import { Express } from 'express';
 
-import { connectDb, closeDb, truncateDb } from '../../test-utils';
+import { connectDb, closeDb, truncateDb } from '../../utils';
 import { createApp } from '../../../src/main';
-import { User } from '../../../src/types';
 
 describe('remove', () => {
 	let app: Express;
