@@ -7,7 +7,7 @@ import { createApp, createServer } from './main';
 	const app = await createApp();
 	const server = await createServer(app);
 
-	process.on('SIGINT', () => {
+	process.on('SIGTERM', () => {
 		console.log('SIGTERM signal received.');
 		if (config.get('ENV') === 'production') {
 			server.close(async () => {
